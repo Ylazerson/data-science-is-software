@@ -19,7 +19,7 @@ def awesome_function(s):
 
     to_show = HTML(
         '<style>{}</style>'.format(css) +
-        '<p class="blink"> {} IS AWESOME!!!!! </p>'.format(s)
+        '<p class="blink"> {} IS AWESOMENESS YAY!!!!! </p>'.format(s)
     )
     display(to_show)
 
@@ -38,8 +38,7 @@ def remove_invalid_data(path):
                       'region',
                       'population',
                       'construction_year',
-                      'extraction_type_class',
-                      'status_group',
+                      'extraction_type_class',                      
                       'management_group',
                       'quality_group',
                       'source_type',
@@ -63,9 +62,7 @@ def remove_invalid_data(path):
     # create categorical columns
     for c in df.columns:
         if df[c].dtype == 'object':
-            df[c] = df[c].astype('category')
-
-    df.drop('status_group')
+            df[c] = df[c].astype('category')    
 
     return pd.get_dummies(df)
 
